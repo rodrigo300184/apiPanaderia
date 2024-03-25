@@ -1,4 +1,5 @@
 import { ApiError } from "../utils/apiError.js";
+import { selectQuery} from "../utils/api_connection.js"
 
 async function fetchAll() {
   const getAllProducts = await selectQuery(`
@@ -28,9 +29,6 @@ async function createOne(product) {
   ];
   try {
     const newProduct = await selectQuery(query, data);
-    if (newProduct.affectedRows === 0)
-      throw new ApiError(500,"The product couldn't be created");
-
     const productId = newProduct.insertId;
     const createdProduct = await selectQuery('SELECT * FROM products WHERE id = ?', [productId]);
     return {
@@ -42,7 +40,7 @@ async function createOne(product) {
   } catch (error) {
     // Manejar errores
     console.error('Error creating product:', error);
-    throw new ApiError("The product couldn't be created");
+    throw new ApiError(404,"The product couldn't be created");
   }
 }
 

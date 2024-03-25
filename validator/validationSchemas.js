@@ -1,9 +1,9 @@
 import Joi from "joi";
 
 export const productSchema = Joi.object({
-    "title":Joi.string().min(1).max(255).required(),
-    "description":Joi.string().min(30).max(1000).required(),
-    "stock": Joi.boolean().required(),
+    "title":Joi.string().min(1).max(255),
+    "description":Joi.string().min(3).max(255),
+    "stock": Joi.boolean(),
     "creation_date": Joi.date(),
 });
 

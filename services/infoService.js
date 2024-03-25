@@ -3,6 +3,7 @@ import apiPanaderiaInfo from "../assets/ApiPanaderiaInfo.json" assert { type: "j
 
 function get() {
     const info = apiPanaderiaInfo;
+    console.log(info);
     if(!info) throw new Error('Error obtaining general information abour API REST service');
     return info;
   }

@@ -1,8 +1,8 @@
-const mysql = require('mysql2/promise');
+import mysql from 'mysql2/promise';
 import 'dotenv/config';
 
 const userSQL = process.env.USER_SQL;
-const databaseSQL = process.env.DATABASE_SQL;
+const databaseSQL = process.env.DB_NAME;
 const passwordSQL = process.env.PASSWORD_SQL;
 const port = process.env.PORT;
 
@@ -11,7 +11,7 @@ export const createDatabaseIfNotExists = async () => {
   try {
     // Conectarse al servidor MySQL sin seleccionar una base de datos.
     const connection = await mysql.createConnection({
-      port: port,
+      port: 3307,
       host: '127.0.0.1',
       user: userSQL,
       password: passwordSQL,

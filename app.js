@@ -4,7 +4,6 @@ import { authMiddleware } from './middlewares/login.js';
 import { infoController } from './controllers/infoController.js';
 import { productsController } from './controllers/productController.js';
 import cors from 'cors';
-import { ApiError } from './utils/apiError.js';
 
 
 
@@ -19,10 +18,11 @@ app.use('/', infoController)
 app.use('/login', loginController)
 app.use(authMiddleware)
 app.use('/products', productsController)
-app.use((error, _req, res) => {
-    return res.send(error instanceof ApiError ? error.status : 500).json({ error: true, message: error.message ||'Application error' })
-})
+app.use((error, _req, res, _next) => {
+    return res.status(error ? error.status : 500).json({ error: true, message: error.message || 'Application error' });
+});
 
-app.listen(3307, () => {
-    console.log("The server is running in port: 3307");
+
+app.listen(8000, () => {
+    console.log("The server is running in port: 8000");
   });
