@@ -3,6 +3,7 @@ import { loginController } from './controllers/loginController.js';
 import { authMiddleware } from './middlewares/login.js';
 import { infoController } from './controllers/infoController.js';
 import { productsController } from './controllers/productController.js';
+import logger from './utils/logger.js'
 import cors from 'cors';
 
 
@@ -24,5 +25,5 @@ app.use((error, _req, res, _next) => {
 
 
 app.listen(8000, () => {
-    console.log("The server is running in port: 8000");
+    logger.info("The server is running in port 8000")
   });

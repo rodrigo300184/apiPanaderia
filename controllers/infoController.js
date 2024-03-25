@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { infoService } from "../services/infoService.js";
 
-
 export const infoController = Router();
 
 infoController.get('/', (_req, res) => {

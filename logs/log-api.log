@@ -1,0 +1,11 @@
+
+[2024-03-25T16:40:33.411Z] info: The server is running in port 8000
+[2024-03-25T16:40:34.521Z] info: The server is running in port 8000
+[2024-03-25T16:40:40.891Z] info: The server is running in port 8000
+[2024-03-25T16:41:54.596Z] info: The server is running in port 8000
+[2024-03-25T16:41:59.961Z] info: The server is running in port 8000
+[2024-03-25T16:44:12.892Z] info: The server is running in port 8000
+[2024-03-25T16:44:24.486Z] info: The server is running in port 8000
+[2024-03-25T16:45:16.456Z] info: The server is running in port 8000
+[2024-03-25T16:45:21.066Z] info: Successful login for email: email@email.com
+[2024-03-25T16:45:43.509Z] error: Error during login: Wrong email or password!

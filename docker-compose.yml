@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${PASSWORD_SQL;}
-      MYSQL_DATABASE: dbPanaderia
+      MYSQL_DATABASE: ${DB_NAME;}
       MYSQL_USER: ${USER_SQL;}
       MYSQL_PASSWORD: ${PASSWORD_SQL;}
     ports:

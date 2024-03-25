@@ -50,11 +50,11 @@ productsController.put(
   generateValidationMiddleware(productSchema),
   async (req, res, next) => {
     try {
-      const updatedBooking = await productService.editOne(
+      const updatedProduct = await productService.editOne(
         req.params.id || "",
         req.body
       );
-      res.json({ updatedBooking });
+      res.json({ updatedProduct });
     } catch (error) {
       next(error);
     }
