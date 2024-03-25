@@ -1,0 +1,14 @@
+[
+  {
+    "name": "API Panaderia",
+    "description": "Welcome to Check In Scan Panaderia API REST. Here you can find the different routes and methods you can use with this API.",
+    "public_routes": {
+      "/info": "GET",
+      "/login": "POST"
+    },
+    "private_routes": {
+      "/products": "GET, POST",
+      "/products/id": "GET, PUT, DELETE"
+    }
+  }
+]
