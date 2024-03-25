@@ -1,4 +1,5 @@
-import apiPanaderiaInfo from '../assets/ApiPanaderiaInfo.json';
+import apiPanaderiaInfo from "../assets/ApiPanaderiaInfo.json" assert { type: "json" };
+
 
 function get() {
     const info = apiPanaderiaInfo;

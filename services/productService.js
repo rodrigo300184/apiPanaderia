@@ -1,4 +1,4 @@
-import { ApiError } from "../utils/apiError";
+import { ApiError } from "../utils/apiError.js";
 
 async function fetchAll() {
   const getAllProducts = await selectQuery(`

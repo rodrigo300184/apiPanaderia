@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { infoService } from "../services/infoService";
-import { ApiError } from "../utils/apiError";
+import { infoService } from "../services/infoService.js";
+import { ApiError } from "../utils/apiError.js";
 
 export const infoController = Router();
 

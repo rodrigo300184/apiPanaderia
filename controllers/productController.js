@@ -1,12 +1,14 @@
 import { Router } from "express";
-import { productService } from "../services/productService";
+import { productService } from "../services/productService.js";
+import { generateValidationMiddleware } from '../validator/validationMiddleware.js';
+import { productSchema } from '../validator/validationSchemas.js';
 
 export const productsController = Router();
 
 productsController.get("/", async (_req, res, next) => {
   try {
-    const bookingsData = await productService.fetchAll();
-    res.json({ bookingsData });
+    const productsData = await productService.fetchAll();
+    res.json({ productsData });
   } catch (error) {
     next(error);
   }
@@ -14,8 +16,8 @@ productsController.get("/", async (_req, res, next) => {
 
 productsController.get("/:id", async (req, res, next) => {
   try {
-    const booking = await productService.fetchOne(req.params.id);
-    res.json({ booking });
+    const product = await productService.fetchOne(req.params.id);
+    res.json({ product });
   } catch (error) {
     next(error);
   }
@@ -23,11 +25,11 @@ productsController.get("/:id", async (req, res, next) => {
 
 productsController.post(
   "/",
-  generateValidationMiddleware(bookingSchema),
+  generateValidationMiddleware(productSchema),
   async (req, res, next) => {
     try {
-      const newBooking = await productService.createOne(req.body);
-      res.json({ newBooking });
+      const newProduct = await productService.createOne(req.body);
+      res.json({ newProduct });
     } catch (error) {
       next(error);
     }
@@ -37,7 +39,7 @@ productsController.post(
 productsController.delete("/:id", async (req, res, next) => {
   try {
     await productService.deleteOne(req.params.id);
-    res.json("The booking was correctly deleted.");
+    res.json("The product was correctly deleted.");
   } catch (error) {
     next(error);
   }
@@ -45,7 +47,7 @@ productsController.delete("/:id", async (req, res, next) => {
 
 productsController.put(
   "/:id",
-  generateValidationMiddleware(bookingSchema),
+  generateValidationMiddleware(productSchema),
   async (req, res, next) => {
     try {
       const updatedBooking = await productService.editOne(
